@@ -11,6 +11,8 @@
         {
             logger.LogInfo("Begin parsing");
 
+            string parsedString = TryParse.line;
+
             // Do not fail if one record parsing fails, return null
             return null; // TODO Implement
         }
