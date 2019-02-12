@@ -8,9 +8,9 @@ Here's what you'll need to do for this Kata:
 
 1. Clone this repo to your machine, then create a branch to accomplish your work (`git checkout -b your-branch-name`)
 2. Complete all the `TODO`s, while adding appropriate log statements along the way. You can find more details below in the Kata Details section:
-    1. Start with writing a Unit Test to Test the Parse method
-    2. Implement the Parse Method
-    3. Use the [GeoCoordinate.NetCore](https://www.nuget.org/packages/GeoCoordinate.NetCore/) NuGet package to calculate distance between two points
+    a) Start with writing a Unit Test to Test the Parse method
+    b) Implement the Parse Method
+    c) Use the [GeoCoordinate.NetCore](https://www.nuget.org/packages/GeoCoordinate.NetCore/) NuGet package to calculate distance between two points
 3. Reduce the logging verbosity and rerun
 
 ## Kata Details
