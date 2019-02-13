@@ -13,14 +13,14 @@ namespace LoggingKata.Test
         }
 
         [Theory]
-        [InlineData("Example")]
-        public void ShouldParse(string line, string expected)
+        [InlineData("34.073638,-84.677017,Taco Bell Acwort", "34.073638, -84.677017, Taco Bell Acwort")]
+        public void ShouldParse(string line, ITrackable expected)
         {
             // arrange
             TacoParser tacoParser = new TacoParser();
 
             // act
-            string actual = tacoParser.Parse(line);
+            ITrackable actual = tacoParser.Parse(line);
 
             // assert
             Assert.Equal(expected, actual);
