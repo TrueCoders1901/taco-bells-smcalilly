@@ -31,12 +31,12 @@ namespace LoggingKata
 
         public void LogInfoArray(string[] log)
         {
-            Console.WriteLine($"Info: {log}");
+            Console.WriteLine($"Array Info: {log}");
         }
 
         public void LogITrackableInfo(ITrackable log)
         {
-            Console.WriteLine($"Info: {log}");
+            Console.WriteLine($"ITrack Info: {log}");
         }
     }
 }
