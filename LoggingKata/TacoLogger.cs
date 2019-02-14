@@ -28,5 +28,15 @@ namespace LoggingKata
         {
             Console.WriteLine($"Debug: {log}");
         }
+
+        public void LogInfoArray(string[] log)
+        {
+            Console.WriteLine($"Info: {log}");
+        }
+
+        public void LogITrackableInfo(ITrackable log)
+        {
+            Console.WriteLine($"Info: {log}");
+        }
     }
 }
