@@ -11,13 +11,17 @@
         {
             logger.LogInfo("Begin parsing");
 
+            logger.LogInfo(line);
+
             // split line into array of strings
             string[] cells = line.Split(',');
+            logger.LogInfoArray(cells);
 
 
             // Do not fail if one record parsing fails, return null
             if (cells.Length < 3)
             {
+                logger.LogError(line, null);
                 return null;
             }
 
@@ -33,15 +37,15 @@
             coordinates.Longitude = longitude;
 
 
-            // so now i have my latitude, longitude, and locationName
-            // and need to apply that information to my Taco Bell instance
-
-
             TacoBell tacoBell = new TacoBell();
             tacoBell.Name = locationName;
             tacoBell.Location = coordinates;
 
+            logger.LogITrackableInfo(tacoBell);
+
             return tacoBell;
+
+
 
         }
     }
