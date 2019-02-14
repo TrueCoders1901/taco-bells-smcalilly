@@ -15,6 +15,7 @@ namespace LoggingKata.Test
         [Theory]
         [InlineData("34.073638,-84.677017,Taco Bell Acwort")]
         [InlineData("34,-84,Taco Bell")]
+        [InlineData("34.795116,-86.97191,Taco Bell Athens")]
         public void ShouldParse(string line)
         {
             // arrange
@@ -31,12 +32,19 @@ namespace LoggingKata.Test
         [Theory]
         [InlineData(null)]
         [InlineData("")]
-       // string with one comma etc
-       // longitute > maximum longitude
+        [InlineData("33.323, 23.223")]
+        [InlineData("181, 23.223, taco bell")]
 
-        public void ShouldFailParse(string str)
+        public void ShouldFailParse(string line)
         {
-            // TODO: Complete Should Fail Parse
+            // arrange
+            TacoParser tacoParser = new TacoParser();
+
+            // act
+            ITrackable actual = tacoParser.Parse(line);
+
+            // assert
+            Assert.Null(actual);
         }
     }
 }

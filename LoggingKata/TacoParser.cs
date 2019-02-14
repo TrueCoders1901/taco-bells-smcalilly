@@ -24,13 +24,19 @@ namespace LoggingKata
             // Do not fail if one record parsing fails, return null
             if (cells.Length < 3)
             {
-                logger.LogError(line, null);
+                logger.LogError(line);
                 return null;
             }
 
             // converting latitude and longitude to double
             double latitude = double.Parse(cells[0]);
             double longitude = double.Parse(cells[1]);
+
+            if (latitude > 180 || longitude > 180)
+            {
+                logger.LogError(line, null);
+                return null;
+            }
 
             string locationName = cells[2];
 

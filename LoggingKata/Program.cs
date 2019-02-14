@@ -14,20 +14,45 @@ namespace LoggingKata
         {
             logger.LogInfo("Log initialized");
 
-            // var lines = File.ReadAllLines(csvPath);
-            var lines = "34.073638,-84.677017,Taco Bell Acwort... (Free trial * Add to Cart for a full POI info)";
-
+            var lines = File.ReadAllLines(csvPath);
                 logger.LogInfo($"Lines: {lines[0]}");
+
+            if (lines.Length == 0)
+            {
+                logger.LogError("Error: No lines returned");
+            }
+
+            if (lines.Length == 1)
+            {
+                logger.LogWarning("Warning: This only has one line");
+            }
 
             TacoParser parser = new TacoParser();
 
-            //var locations = lines.Select(parser.Parse).ToArray();
+            var locations = lines.Select(parser.Parse).ToArray();
 
-            var location = parser.Parse(lines);
-            Console.WriteLine(location);
+            ITrackable locationA;
+            ITrackable locationB;
+            double distanceBetweenLocations;
+
+            GeoCoordinate coordinateA = new GeoCoordinate();
 
             // TODO:  Find the two Taco Bells that are the furthest from one another.
             // HINT:  You'll need two nested forloops
+
+            for (Point location; 0 < location.Length-1; locations)
+            {
+                locationA = location;
+                coordinateA = locationA.Location;
+
+                foreach (var otherLocation in locations)
+                {
+                    locationB = otherLocation;
+                    Point coordinateB = locationB.Location;
+
+                    distanceBetweenLocations = coordinateA.GetDistanceTo(coordinateB);
+                }
+            }
         }
     }
 }
