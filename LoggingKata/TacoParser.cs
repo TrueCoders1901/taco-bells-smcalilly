@@ -37,19 +37,18 @@ namespace LoggingKata
             Point coordinates = new Point();
             coordinates.Latitude = latitude;
             coordinates.Longitude = longitude;
-            Point geoCoordinates = coordinates.GetPoint(latitude, longitude);
 
             TacoBell tacoBell = new TacoBell();
             tacoBell.Name = locationName;
-            tacoBell.Location = geoCoordinates;
+            tacoBell.Location = coordinates;
 
             Console.WriteLine(locationName);
-            Console.WriteLine(geoCoordinates);
+            Console.WriteLine(coordinates);
             
-           
+
             logger.LogITrackableInfo(tacoBell);
 
-            return tacoBell.GetTrackable(locationName, geoCoordinates);
+            return tacoBell;
         }
     }
 }
