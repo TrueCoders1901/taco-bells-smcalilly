@@ -11,15 +11,8 @@ namespace LoggingKata
         
         public ITrackable Parse(string line)
         {
-            logger.LogInfo("Begin parsing");
-
-            logger.LogInfo(line);
-
             // split line into array of strings
             string[] cells = line.Split(',');
-            logger.LogInfoArray(cells);
-
-            System.Console.WriteLine(cells);
 
             // Do not fail if one record parsing fails, return null
             if (cells.Length < 3)
@@ -47,12 +40,6 @@ namespace LoggingKata
             TacoBell tacoBell = new TacoBell();
             tacoBell.Name = locationName;
             tacoBell.Location = coordinates;
-
-            Console.WriteLine(locationName);
-            Console.WriteLine(coordinates);
-            
-
-            logger.LogITrackableInfo(tacoBell);
 
             return tacoBell;
         }

@@ -12,10 +12,7 @@ namespace LoggingKata
 
         static void Main(string[] args)
         {
-            logger.LogInfo("Log initialized");
-
             var lines = File.ReadAllLines(csvPath);
-                logger.LogInfo($"Lines: {lines[0]}");
 
             if (lines.Length == 0)
             {
@@ -37,11 +34,6 @@ namespace LoggingKata
             ITrackable permLocB = null;
             double distanceBetweenLocations;
             double permanentDistanceBtw = 0;
-
-           
-
-            // TODO:  Find the two Taco Bells that are the furthest from one another.
-            // HINT:  You'll need two nested forloops
 
             for (int i = 0; i < locations.Length; i++)
             {
