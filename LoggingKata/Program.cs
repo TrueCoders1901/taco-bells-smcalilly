@@ -33,26 +33,45 @@ namespace LoggingKata
 
             ITrackable locationA;
             ITrackable locationB;
+            ITrackable permLocA = null;
+            ITrackable permLocB = null;
             double distanceBetweenLocations;
+            double permanentDistanceBtw = 0;
 
-            GeoCoordinate coordinateA = new GeoCoordinate();
+           
 
             // TODO:  Find the two Taco Bells that are the furthest from one another.
             // HINT:  You'll need two nested forloops
 
-            for (Point location; 0 < location.Length-1; locations)
+            for (int i = 0; i < locations.Length; i++)
             {
-                locationA = location;
-                coordinateA = locationA.Location;
+                locationA = locations[i];
+                double latitudeA = locationA.Location.Latitude;
+                double longitudeA = locationA.Location.Longitude;
+
+                GeoCoordinate coordinateA = new GeoCoordinate(latitudeA, longitudeA);
 
                 foreach (var otherLocation in locations)
                 {
                     locationB = otherLocation;
-                    Point coordinateB = locationB.Location;
+                    double latitudeB = locationB.Location.Latitude;
+                    double longitudeB = locationB.Location.Longitude;
+
+                    GeoCoordinate coordinateB = new GeoCoordinate(latitudeB, longitudeB);
 
                     distanceBetweenLocations = coordinateA.GetDistanceTo(coordinateB);
+                    if (distanceBetweenLocations > permanentDistanceBtw)
+                    {
+                        permLocA = locationA;
+                        permLocB = locationB;
+                        permanentDistanceBtw = distanceBetweenLocations;
+                    }
                 }
             }
+
+            Console.WriteLine(permLocA.Name);
+            Console.WriteLine(permLocB.Name);
+
         }
     }
 }
